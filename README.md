@@ -6,7 +6,21 @@ AWS 클라우드 환경에서의 보안 요소를 고려한 구축 방법에 대
 
 ## NACL VS Security group
 
-## 
+## ALB VS NLB
+
+## SSH
+
+## SSL / TLS 
+
+## ACM 
+
+## ROLE 
+
+## Policy
+
+## Role vs policy
+
+
 
 ## WAF
 ### WAF란?
@@ -22,4 +36,4 @@ WAF를 사용하면 IP 주소, HTTP 헤더, HTTP 본문, URI 문자열, 교차 �
 
 ### WAF와 ALB(부제: 7L ALB 장비와 함께..) 
 
-
+### 정책 
