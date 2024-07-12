@@ -1,8 +1,33 @@
 # aws-cloud-security
 AWS 클라우드 환경에서의 보안 요소를 고려한 구축 방법에 대한 레포지토리 입니다.
-
+  
 ## IAM Service
+1. `IAM (Identity and Access Managenment)`
+    1. 사용자 계정관리 개별 IAM계정을 만들어 사용자별로 AWS 보안 자격 증명을 부여
+![image](https://github.com/user-attachments/assets/e2eb5389-094f-4c8c-b7b3-79d23d55224d)
+- AWS는 계정별로 사용 가능한 권한이 다르다.
+- 기본적으로 ROOT 계정이 제일 최상단 권한을 가진 계정이다. 그러나 이 계정을 이용해선 인프라 구성을 하지 않는다.(진짜로 안 해요)
+- IAM 서비스 계정을 만든 뒤 해당 계정의 역할(Role)이나 정책(Policy)를 주어서 권한을 제한하는 식으로 진행한다.
+  - 예를 들면 S3 사용 시 해당 S3 사용 권한을 따로 부여하는 식으로 진행한다. 
+### 그룹별 최소 권한 확인
+![image](https://github.com/user-attachments/assets/389a4fd8-7795-4d35-9474-361542c2a58c)
+- Dev / Network Group 등에 Admin 권한을 부여하지 않도록 한다.
+- IAM Full 권한은 운영자만 가질 수 있도록 한다.
+    - 예를 들면 엔지니어링 과정 중에 사용한 IAM 계정을 난 사용했지만 ADMIN 계정은 아니었다.
+- IAM Service 사용 시 그룹을 만들거나 하는 등의 작업을 할수 있다.
+- 이때 권한을 부여하거나 할때 그룹별로 부여하는 게 가장 관리하기 효과적이다.
+- 하나씩 권한이나 정책 부여를 하면 계정당 이를 관리해야해서 귀찮아진다.
+### 3. AWS 계정은 AWS 자원 격리 공간이다.
+- IAM 계정을 사용해야 서비스, 자원 등을 사용할 수 있다.
 
+### 4. Role VS Policy
+- IAM Role: 임시 자격 증명
+- User Policy 부여: 상시 적용 ~> 결과적으로 보안에 매우 취약
+- 권한 부여와 관련해서 만료 기간 차이가 있음을 제대로 파악하자 
+
+### 5. 여러개의 정책 부여?
+- 여러개의 정책을 부여하는 경우엔 교집합으로 적용된다.
+- `최소 권한`이 부여 됨을 알수 있다.
 
 ## NACL VS Security group
 
@@ -13,10 +38,6 @@ AWS 클라우드 환경에서의 보안 요소를 고려한 구축 방법에 대
 ## SSL / TLS 
 
 ## ACM 
-
-## ROLE 
-
-## Policy
 
 ## Role vs policy
 
